@@ -17,6 +17,7 @@ namespace ArrayExercises
 {
     internal class Game
     {
+        string[] someArray = new string[5];
         public void Run()
         {
             int[] ints = GetValues();
@@ -32,7 +33,7 @@ namespace ArrayExercises
         {
 
             string[] someArray = new string[5];
-            
+            // The player enters 5 numbers.
             Console.WriteLine("Enter 5 Numbers.");
 
             someArray[0] = Console.ReadLine();
@@ -54,11 +55,17 @@ namespace ArrayExercises
 
         int[] PrintArray(int[] array)
         {
+            
+            foreach(string num in someArray)
+            {
+                Console.WriteLine(num);
+            }
             return null;
         }
 
         int PrintSum(int[] array)
         {
+
             return 0;
         }
 
@@ -74,6 +81,7 @@ namespace ArrayExercises
 
         int[] PrintReverse(int[] array)
         {
+            
             return null;
         }
         int GetInput(string description, string userinput1, string userinput2, string userinput3, string userinput4, string userinput5)
