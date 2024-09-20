@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 /* 
  * Array Exercises
@@ -17,7 +19,9 @@ namespace ArrayExercises
 {
     internal class Game
     {
-        string[] someArray = new string[5];
+        int[] playerValues = new int[5];
+
+
         public void Run()
         {
             int[] ints = GetValues();
@@ -32,57 +36,68 @@ namespace ArrayExercises
         int[] GetValues()
         {
 
-            string[] someArray = new string[5];
             // The player enters 5 numbers.
             Console.WriteLine("Enter 5 Numbers.");
+            int[] playerValues = new int[5];
+            string input;
 
-            someArray[0] = Console.ReadLine();
-            someArray[1] = Console.ReadLine();
-            someArray[2] = Console.ReadLine();
-            someArray[3] = Console.ReadLine();
-            someArray[4] = Console.ReadLine();
-            
 
-            // Int32.Parse()
-            string test = "";
-            int x = 0;
-            if (Int32.TryParse(test, out int num))
+            for (int i = 0; i < playerValues.Length; ++i)
             {
-                x = num;
+                input = Console.ReadLine();
+
+                //Console.Write(someArray[i]);
+                if (Int32.TryParse(input, out int num))
+                {
+                    playerValues[i] = num;
+                }
             }
-            return null;
+            return playerValues;
         }
 
         int[] PrintArray(int[] array)
         {
-            
-            foreach(string num in someArray)
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("Here are the numbers printed from the array.");
+            Console.WriteLine();
+
+            for (int i = 0; i < playerValues.Length; ++i)
             {
-                Console.WriteLine(num);
+                Console.Write(playerValues[i] + " ");
             }
-            return null;
+            return playerValues;
         }
 
         int PrintSum(int[] array)
         {
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("Here is the sum of the numbers in the array.");
 
             return 0;
         }
 
         int[] PrintHighest(int[] array)
         {
-            return null;
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("Here is the highest number from the array.");
+            return playerValues;
         }
 
         int[] PrintLowest(int[] array)
         {
-            return null;
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("Here is the lowest number from the array.");
+            return playerValues;
         }
 
         int[] PrintReverse(int[] array)
         {
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("Here is the array printed in reverse.");
+            Console.WriteLine();
             
-            return null;
+            return playerValues;
         }
         int GetInput(string description, string userinput1, string userinput2, string userinput3, string userinput4, string userinput5)
         {
