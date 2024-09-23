@@ -71,7 +71,6 @@ namespace ArrayExercises
         int PrintSum(int[] array)
         {
             Console.WriteLine();
-            Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("Here is the sum of the numbers in the array.");
 
             return 0;
@@ -79,21 +78,18 @@ namespace ArrayExercises
 
         int[] PrintHighest(int[] array)
         {
-            Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("Here is the highest number from the array.");
             return playerValues;
         }
 
         int[] PrintLowest(int[] array)
         {
-            Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("Here is the lowest number from the array.");
             return playerValues;
         }
 
         int[] PrintReverse(int[] array)
         {
-            Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("Here is the array printed in reverse.");
             Console.WriteLine();
             
