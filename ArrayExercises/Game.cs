@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace ArrayExercises
     internal class Game
     {
         int[] playerValues = new int[5];
+        int max = 0;
+        int min = 0;
 
 
         public void Run()
@@ -27,10 +30,10 @@ namespace ArrayExercises
             int[] ints = GetValues();
 
             PrintArray(ints);
-            PrintReverse(ints);
             PrintSum(ints);
             PrintHighest(ints);
             PrintLowest(ints);
+            PrintReverse(ints);
         }
 
         int[] GetValues()
@@ -41,7 +44,7 @@ namespace ArrayExercises
             int[] playerValues = new int[5];
             string input;
 
-
+            
             for (int i = 0; i < playerValues.Length; ++i)
             {
                 input = Console.ReadLine();
@@ -57,13 +60,14 @@ namespace ArrayExercises
 
         int[] PrintArray(int[] array)
         {
-            Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("Here are the numbers printed from the array.");
             Console.WriteLine();
 
+            // for loop to read the playervalues and print them to the screen.
             for (int i = 0; i < playerValues.Length; ++i)
             {
-                Console.Write(playerValues[i] + " ");
+
+                Console.WriteLine(array[i] + " ");
             }
             return playerValues;
         }
@@ -73,74 +77,75 @@ namespace ArrayExercises
             Console.WriteLine();
             Console.WriteLine("Here is the sum of the numbers in the array.");
 
-            return 0;
+            int sum = 0;
+            for (int i = 0; i < playerValues.Length; ++i)
+            {
+                // Adds the sum of the array values.
+                sum = sum + array[i];
+            }
+            Console.WriteLine(sum);
+
+            return sum;
         }
 
-        int[] PrintHighest(int[] array)
+        int PrintHighest(int[] array)
         {
+            Console.WriteLine();
             Console.WriteLine("Here is the highest number from the array.");
-            return playerValues;
+
+
+            int max = array[0];
+            for (int i = 0; i < playerValues.Length; ++i)
+            {
+                // Finds the max number out of the array.
+                if (array[i] > max)
+                {
+                    max = array[i];
+                }
+            }
+            Console.WriteLine(max);
+
+            return max;
         }
 
         int[] PrintLowest(int[] array)
         {
+            Console.WriteLine();
             Console.WriteLine("Here is the lowest number from the array.");
+
+            int min = array[0];
+            for (int i = 0; i < playerValues.Length; ++i)
+            {
+                // Finds the lowest number out of the array.
+                if (array[i] < min)
+                {
+                    min = array[i];
+                }
+            }
+            Console.WriteLine(min);
+
+
             return playerValues;
         }
 
         int[] PrintReverse(int[] array)
         {
-            Console.WriteLine("Here is the array printed in reverse.");
             Console.WriteLine();
-            
-            return playerValues;
-        }
-        int GetInput(string description, string userinput1, string userinput2, string userinput3, string userinput4, string userinput5)
-        {
-            string input = "";
-            int inputReceived = 0;
+            Console.WriteLine("Here is the array printed in reverse.");
 
-            while (inputReceived != 1 && inputReceived != 2)
+            // Prints the array in reverse order.
+            for (int i = playerValues.Length - 1; i < playerValues.Length; --i)
             {
-                Console.WriteLine(description);
-                Console.WriteLine(userinput1);
-                Console.WriteLine(userinput2);
-                Console.WriteLine(userinput3);
-                Console.WriteLine(userinput4);
-                Console.WriteLine(userinput5);
-                Console.Write("> ");
+                if (i == -1)
+                    break;
 
-                input = Console.ReadLine();
+                Console.WriteLine(array[i]);
 
-                if (input == "" || input == userinput1)
-                {
-                    userinput1 = "";
-                }
-                else if (input == "" || input == userinput2)
-                {
-                    userinput2 = "";
-                }
-                else if (input == "" || input == userinput3)
-                {
-                    userinput3 = "";
-                }
-                else if (input == "" || input == userinput4)
-                {
-                    userinput4 = "";
-                }
-                else if (input == "" || input == userinput5)
-                {
-                    userinput5 = "";
-                }
-                else
-                {
-                    Console.WriteLine("Invalid Input");
-                    Console.ReadKey();
-                }
-                
+
             }
-            Console.Clear();
-            return inputReceived;
+            
+            return array;
         }
+
     }
 }
